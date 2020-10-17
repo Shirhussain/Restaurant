@@ -1486,3 +1486,7 @@ textarea.form-control {
     stroke-dashoffset: -136px;
   }
 }
+
+.meal_img {
+  width: 100% !important;
+}

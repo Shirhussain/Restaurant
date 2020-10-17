@@ -11,7 +11,7 @@ def meal_detail(request, slug):
     detail = get_object_or_404(Meals,slug=slug)
 
     context = {
-        "detail":detail,
+        "meal_detail":detail,
     }
     return render(request, "meals/detail.html", context)
 
