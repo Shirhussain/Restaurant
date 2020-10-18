@@ -1,9 +1,13 @@
 from django.shortcuts import get_object_or_404, render
-from . models import  Meals
+from . models import  Meals, Category
 
 def meal_list(request):
     meals = Meals.objects.all()
-    context = {'meals':meals}
+    categories = Category.objects.all()
+    context = {
+        'meals':meals,
+        'categories': categories
+        }
     return render(request, "meals/list.html", context)
 
 
