@@ -7,6 +7,7 @@ class Meals(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(blank=True, null=True)
     description = models.TextField(max_length=500)
+    category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
     people = models.IntegerField(help_text="for how many people it is? ")
     price  = models.DecimalField(max_digits=5, decimal_places=2)
     preperation_time = models.IntegerField()
@@ -23,3 +24,13 @@ class Meals(models.Model):
     class Meta:
         verbose_name = "Meal"
         verbose_name_plural = "Meals"
+
+class Category(models.Model):
+    name = models.CharField(max_length=30)
+
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.name
