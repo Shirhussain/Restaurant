@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load widget_tweaks %}
 
 {% block content %}
 
@@ -29,28 +29,31 @@
     <div class="row justify-content-center">
         <div class="col-md-10 p-5 form-wrap">
         
-            {% comment %}
-                <form action="#">
+                <form action="" method="POST">
+                    {% csrf_token %}
                     <div class="row mb-4">
                     <div class="form-group col-md-4">
                         <label for="name" class="label">Name</label>
                         <div class="form-field-icon-wrap">
                         <span class="icon ion-android-person"></span>
-                        <input type="text" class="form-control" id="name">
+                        <!-- <input type="text" class="form-control" id="name"> -->
+                            {% render_field form.name|attr:"type:text"  class="form-control" %}
                         </div>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="email" class="label">Email</label>
                         <div class="form-field-icon-wrap">
                         <span class="icon ion-email"></span>
-                        <input type="email" class="form-control" id="email">
+                        <!-- <input type="email" class="form-control" id="email"> -->
+                            {% render_field form.email|attr:"type:email"  class+="form-control" %}
                         </div>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="phone" class="label">Phone</label>
                         <div class="form-field-icon-wrap">
                         <span class="icon ion-android-call"></span>
-                        <input type="text" class="form-control" id="phone">
+                        <!-- <input type="text" class="form-control" id="phone"> -->
+                            {% render_field form.phone|attr:"type:text"  class="form-control" %}
                         </div>
                     </div>
 
@@ -58,27 +61,34 @@
                         <label for="persons" class="label">Number of Persons</label>
                         <div class="form-field-icon-wrap">
                         <span class="icon ion-android-arrow-dropdown"></span>
-                        <select name="persons" id="persons" class="form-control">
+                        <!-- <select name="persons" id="persons" class="form-control">
                             <option value="">1 person</option>
                             <option value="">2 persons</option>
                             <option value="">3 persons</option>
                             <option value="">4 persons</option>
                             <option value="">5+ persons</option>
-                        </select>
-                        </div>
+                        </select> -->
+                        {% render_field form.number_of_persons|attr:"type:select"  class="form-control" %}
+                <!-- <form action="" method="post">
+                {% csrf_token %}
+                {{form}}
+                <button type="submit" class="btn btn-primary">submit</button>
+            </form> -->              </div>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="date" class="label">Date</label>
                         <div class="form-field-icon-wrap">
                         <span class="icon ion-calendar"></span>
-                        <input type="text" class="form-control" id="date">
+                        <!-- <input type="text" class="form-control" id="date"> -->
+                        {% render_field form.date|attr:"type:date" class="form-control" %}
                         </div>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="time" class="label">Time</label>
                         <div class="form-field-icon-wrap">
                         <span class="icon ion-android-time"></span>
-                        <input type="text" class="form-control" id="time">
+                        <!-- <input type="text" class="form-control" id="time"> -->
+                        {% render_field form.time|attr:"type:num" class="form-control" %}
                         </div>
                     </div>
                     </div>
@@ -89,13 +99,6 @@
                     </div>
                     </div>
                 </form>
-            {% endcomment %}
-
-            <form action="" method="post">
-                {% csrf_token %}
-                {{form}}
-                <button type="submit" class="btn btn-primary">submit</button>
-            </form>
 
         </div>
     </div>
