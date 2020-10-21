@@ -8,6 +8,7 @@ def reserve_table(request):
         reserveation_form = ReserveForm(request.POST)
         if reserveation_form.is_valid():
             reserveation_form.save()
+            reserveation_form = ReserveForm()
 
     context = {
         'form':reserveation_form
