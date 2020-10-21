@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'meals',
     'reservation',
     'blog',
+    'aboutus',
     
     'django.contrib.admin',
     'django.contrib.auth',
