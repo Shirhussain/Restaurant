@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 from taggit.models import Tag
 
@@ -9,8 +10,19 @@ from . forms import CommentForm
 
 def post_list(request):
     posts = Post.objects.all()
-    paginator = Paginator(posts, 1)
 
+    #search
+    search_query = request.GET.get('q')
+    if search_query:
+        posts = posts.filter(
+            Q(title__icontains=search_query) |
+            Q(content__icontains=search_query)|
+            Q(tags__name__icontains=search_query)
+        ).distinct()
+        
+    
+
+    paginator = Paginator(posts, 3)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     context = {
