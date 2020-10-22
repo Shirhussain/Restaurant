@@ -23,7 +23,7 @@
         <div class="col-md-7 text-center"  data-aos="fade-up">
           <img  src="{{meal_detail.image.url}}" style="width: 100%;" alt="">
           <h2>{{meal_detail.name}}</h2>
-          <p>{{meal_detail.description}}</p>
+          <p>{{meal_detail.description|safe}}</p>
           <p>For: {{meal_detail.people}} people </p>
           <p>preparation Time:  {{meal_detail.preperation_time}} Minutes</p>
           <p>Price: {{meal_detail.price}}$</p>

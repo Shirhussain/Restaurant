@@ -16,12 +16,11 @@ def send_email(request):
             message = form.cleaned_data["message"]
             form = ContactForm()
             try:
-                #shirhussain@admin.af is the receptor of this email
-                # send_mail(name,email,phone,message,['shirhussain@admin.af'])
+                #no_reply@gmail.com is the receptor of this email
                 send_mail(subject, message,from_email, ['no_reply@gmail.com'],fail_silently=False)
                 print(send_mail)
             except :
-                BadHeaderError("Invalid data, please make sure that you are entring the right data")
+                BadHeaderError("Invalid data, please make sure that you are entering the right data")
             return redirect("contact:send_success")
     else:
         form = ContactForm()

@@ -119,7 +119,7 @@
                     <div class="d-block d-md-flex menu-food-item">
                       <div class="text order-1 mb-3">
                         <h3><a href="{% url 'meals:detail' meal.slug %}">{{meal.name}}</a></h3>
-                        <p>{{meal.description}}</p>
+                        <p>{{meal.description|safe}}</p>
                       </div>
                       <div class="price order-2">
                         <strong>${{meal.price}}</strong>

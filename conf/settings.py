@@ -32,7 +32,11 @@ INSTALLED_APPS = [
     #third party
     'widget_tweaks',
     'taggit',
+    #summernote is good for writing in admin it work like tinyMCE
+    'django_summernote',
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

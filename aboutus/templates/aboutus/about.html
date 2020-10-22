@@ -86,7 +86,7 @@
             <img src="{{chef.image.url}}" alt="Image placeholder" class="img-fluid mb-4 rounded">
             <h3 class="mb-3">{{chef.name}}</h3>
             <p class="post-meta text-muted">{{chef.title}}</p>
-            <p class="mb-5">{{chef.biio}}</p>
+            <p class="mb-5">{{chef.biio|truncatewords:30}}</p>
             </div>
         {% endfor %}
 

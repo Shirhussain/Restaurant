@@ -1,12 +1,11 @@
 <nav class="site-menu">
     <div class="site-menu-inner">
       <ul class="list-unstyled">
-        <li class="active"><a href="{% url 'meals:home' %}">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="menu.html">Our Menu</a></li>
-        <li><a href="blog.html">Our Blog</a></li>
+        <li class="active"><a href="{% url 'meals:home' %}">Menu</a></li>
+        <li><a href="{% url 'aboutus:aboutus' %}">About Us</a></li>
+        <li><a href="{% url 'blog:post_list' %}">Our Blog</a></li>
         <li><a href="{% url 'reservation:reserve_table' %}">Reserve A Table</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="{% url 'contact:send_email' %}">Contact</a></li>
       </ul>
     </div>
   </nav>
