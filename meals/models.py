@@ -12,6 +12,8 @@ class Meals(models.Model):
     price  = models.DecimalField(max_digits=5, decimal_places=2)
     preperation_time = models.IntegerField()
     image = models.ImageField(upload_to="Meals/2", height_field=None, width_field=None, max_length=None)
+    created = models.DateTimeField(auto_now_add=True)
+
 
     def save(self, *args, **kwargs):
         if not self.slug and self.name:
@@ -24,6 +26,7 @@ class Meals(models.Model):
     class Meta:
         verbose_name = "Meal"
         verbose_name_plural = "Meals"
+        ordering = ["-created"]
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
