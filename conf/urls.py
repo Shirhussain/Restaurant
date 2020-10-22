@@ -10,6 +10,7 @@ urlpatterns = [
     path("reservation/", include("reservation.urls", namespace="reservation")),
     path("blog/", include("blog.urls", namespace="blog")),
     path("about-us/", include("aboutus.urls", namespace="aboutus")),
+    path("contact/", include("contact.urls", namespace="contact")),
 ]
 
 
