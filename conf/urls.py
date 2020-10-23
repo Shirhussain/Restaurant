@@ -21,3 +21,8 @@ urlpatterns = [
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
+#if you wanna customize your admin panel here is the way 
+admin.site.site_header = "Danishyar Restaurant Admin"
+admin.site.site_title = "رستورانت دانشیار"
+admin.site.site_index_title = "welcome to Danishyar Restaurant admin panel"
